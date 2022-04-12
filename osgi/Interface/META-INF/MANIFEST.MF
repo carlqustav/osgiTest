@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Interface
+Bundle-SymbolicName: Interface
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.o7planning.tutorial.helloosgi.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Import-Package: org.osgi.framework;version="1.3.0",
+ org.osgi.service.component;version="1.4.0",
+ org.osgi.service.component.annotations;version="1.3.0";resolution:=optional
+Automatic-Module-Name: Interface
+Export-Package: org.o7planning.tutorial.helloosgi.interfaceservice,
+ org.o7planning.tutorial.helloosgi.interfaceservice.impl
+Require-Bundle: org.eclipse.equinox.event;bundle-version="1.6.100",
+ org.eclipse.osgi.services,
+ Calculator;bundle-version="1.0.0"

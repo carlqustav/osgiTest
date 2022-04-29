@@ -18,7 +18,6 @@ import org.osgi.service.event.EventConstants;
 public class Activator implements BundleActivator {
 
 	static BundleContext context;
-	private CalculatorHandler ch;
 	CalculateService service;
 
 	static BundleContext getContext() {
@@ -27,28 +26,10 @@ public class Activator implements BundleActivator {
 
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
-		ch = new CalculatorHandler();
-		
-		//getting InterfaceService -redacted-
-		/*
-		ServiceReference<?> serviceReference = context
-				.getServiceReference(InterfaceService.class);
-		InterfaceService service = (InterfaceService) context
-				.getService(serviceReference);
 
-		System.out.println(service.toString());
-		*/
-		
 		this.registryCalculateService();
 
-		//getting event handler -redacted-
-		/*
-		Dictionary<String, String> props = new Hashtable<String,String>();
-		props.put(EventConstants.EVENT_TOPIC, "org/o7planning/tutorial/helloosgi/interfaceservice/impl/");
-
-		context.registerService(CalculatorHandler.class.getName(), new CalculatorHandler(), props);
-		*/
-		System.out.println("Calculator Started with + " + context.getAllServiceReferences(CalculatorHandler.class.getName(), null));
+		System.out.println("Calculator Started");
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {

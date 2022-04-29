@@ -1,0 +1,17 @@
+INDEX VERSION 1.131+C:\Users\Berk\osgi\.metadata\.plugins\org.eclipse.jdt.core
+1645621080.index
+1296787253.index
+3635156179.index
+920819521.index
+2339855124.index
+3447600083.index
+17309039.index
+1322586200.index
+2441938283.index
+1325556875.index
+2762569138.index
+1865797976.index
+175324422.index
+1579737961.index
+279868512.index
+760091825.index

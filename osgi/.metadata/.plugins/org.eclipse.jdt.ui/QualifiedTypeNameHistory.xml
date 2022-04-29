@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.security.Provider.Service"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
+    <fullyQualifiedTypeName name="org.o7planning.tutorial.InterfaceSwing"/>
+    <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="java.awt.Dimension"/>
+    <fullyQualifiedTypeName name="org.eclipse.osgi.service.environment.Constants"/>
+    <fullyQualifiedTypeName name="org.osgi.framework.Constants"/>
+    <fullyQualifiedTypeName name="org.osgi.framework.ServiceEvent"/>
+    <fullyQualifiedTypeName name="org.o7planning.tutorial.helloosgi.interfaceservice.InterfaceService"/>
+    <fullyQualifiedTypeName name="org.o7planning.tutorial.helloosgi.interfaceservice.impl.InterfaceServiceImpl"/>
+    <fullyQualifiedTypeName name="org.osgi.service.event.Event"/>
+    <fullyQualifiedTypeName name="org.osgi.service.component.annotations.Component"/>
+    <fullyQualifiedTypeName name="org.osgi.service.component.annotations.Reference"/>
+    <fullyQualifiedTypeName name="org.osgi.framework.BundleContext"/>
+    <fullyQualifiedTypeName name="org.osgi.framework.ServiceReference"/>
+    <fullyQualifiedTypeName name="org.osgi.service.event.EventAdmin"/>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+    <fullyQualifiedTypeName name="org.osgi.service.event.EventConstants"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+    <fullyQualifiedTypeName name="org.o7planning.tutorial.helloosgi.calculatorservice.impl.CalculateServiceImpl"/>
+    <fullyQualifiedTypeName name="org.o7planning.tutorial.helloosgi.calculatorservice.CalculateService"/>
+    <fullyQualifiedTypeName name="java.util.Dictionary"/>
+    <fullyQualifiedTypeName name="java.util.Hashtable"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+</qualifiedTypeNameHistroy>

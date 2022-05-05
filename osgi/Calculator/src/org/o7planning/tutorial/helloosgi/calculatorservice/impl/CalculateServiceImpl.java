@@ -249,6 +249,7 @@ public class CalculateServiceImpl implements CalculateService {
 		
 		for(int index = 0; index < newList.size(); index++) {
 			String tempStr = newList.get(index);
+			foundMatch = false;
 			
 			for(int i = 0; i < dictMap.size(); i++) {
 				if(dictMap.get(i).containsKey(tempStr)) {
@@ -521,7 +522,7 @@ public class CalculateServiceImpl implements CalculateService {
 						if(temp2.equals(dict.getOrDefault(0.0, ""))) {
 							//nothing
 						}
-						else if(temp2.equals(dict.getOrDefault(1.0, "")) && lang.equals("TR")){
+						else if(temp2.equals(dict.getOrDefault(1.0, "")) && lang.getLanguage().equals("tr")){
 							result = dict.getOrDefault(powerOfTenInt, "") + " " + result;
 						}
 						else {

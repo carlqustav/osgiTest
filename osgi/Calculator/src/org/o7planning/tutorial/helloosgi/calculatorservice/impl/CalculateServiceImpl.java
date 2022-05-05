@@ -13,11 +13,6 @@ import java.util.stream.Stream;
 
 import org.o7planning.tutorial.helloosgi.calculatorservice.CalculateService;
 
-//to do
-//auto language detection-done
-//integer range support upto decillion(use of double)-done
-//accurate translation from buggy
-//accurate translation to complete
 public class CalculateServiceImpl implements CalculateService {
 
 	//constants
@@ -239,7 +234,6 @@ public class CalculateServiceImpl implements CalculateService {
 		
 	}
 	
-	//only using first num to detect for now
 	private Locale detectLanguageBruteForce(List<String> num1List2, List<String> num2List2) {
 		List<String> newList = Stream.concat(num1List2.stream(), num2List2.stream())
                 .collect(Collectors.toList());
@@ -361,7 +355,7 @@ public class CalculateServiceImpl implements CalculateService {
 				}
 				//if its not the last number/string else
 				else {
-					if(index  > 0 && result == 0.0) {
+					if(index  > 0 && result == 0.0 && sign != -1) {
 						result = 0.0;
 					}
 					else {

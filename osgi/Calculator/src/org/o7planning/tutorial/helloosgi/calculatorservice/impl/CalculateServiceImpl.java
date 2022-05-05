@@ -278,13 +278,13 @@ public class CalculateServiceImpl implements CalculateService {
 
 	private double calculate(double num1Result, double num2Result, String operation) {
 		switch(operation) {
-		case "Topla":
+		case "sum":
 			return add(num1Result,num2Result);
-		case "Çıkar":
+		case "sub":
 			return sub(num1Result,num2Result);
-		case "Çarp":
+		case "mul":
 			return mul(num1Result,num2Result);
-		case "Böl":
+		case "div":
 			return div(num1Result,num2Result);
 		default:
 			return -1;

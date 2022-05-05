@@ -123,10 +123,10 @@ public class InterfaceSwing extends JFrame {
         add (resultTextfield);
         add (divButton);
 
-        sumButton.addActionListener(e -> buttonPressed(sumButton.getText()));
-        subButton.addActionListener(e -> buttonPressed(subButton.getText()));
-        mulButton.addActionListener(e -> buttonPressed(mulButton.getText()));
-        divButton.addActionListener(e -> buttonPressed(divButton.getText()));
+        sumButton.addActionListener(e -> buttonPressed("sum"));
+        subButton.addActionListener(e -> buttonPressed("sub"));
+        mulButton.addActionListener(e -> buttonPressed("mul"));
+        divButton.addActionListener(e -> buttonPressed("div"));
              
         //set component bounds (only needed by Absolute Positioning)
         sumButton.setBounds (15, 180, 100, 20);

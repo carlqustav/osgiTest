@@ -217,7 +217,7 @@ public class CalculateServiceImpl implements CalculateService {
 		lang = detectLanguageBruteForce(num1List, num2List);
 			
 		if(lang == null) {
-			return new String[] {"Error"};
+			return new String[] {"Error : Conflicting languages or invalid word."};
 		}
 		else {
 			System.out.println(lang.getLanguage());
@@ -225,7 +225,13 @@ public class CalculateServiceImpl implements CalculateService {
 			num1Result = translate(num1List);
 			num2Result = translate(num2List);
 
-			resultInt = calculate(num1Result,num2Result,operation);
+			if(num2Result == 0 && operation.equals("Böl")) {
+				return new String[] {"Error : Division by 0 cannot be computed."};
+			}
+			else {		
+				resultInt = calculate(num1Result,num2Result,operation);
+			}
+			
 			result = translateBack(resultInt);
 
 			return new String[]{result,Double.toString(num1Result),Double.toString(num2Result),Double.toString(resultInt)};

@@ -2,6 +2,7 @@ package org.o7planning.tutorial;
 
 import java.awt.Dimension;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.swing.JButton;
@@ -35,6 +36,28 @@ public class InterfaceSwing extends JFrame {
     String langTR = "TR";
     String langEN = "EN";
     
+    Map<String,String> uiEN = new HashMap<String,String>() {{
+        put("sum"      ,"Add"    );
+        put("sub"      ,"Subtract"      );
+        put("mul"     ,"Multiply"      );
+        put("div"     ,"Divide"       );
+        put("firstn"    ,"First Number"     );
+        put("secondn"     ,"Second Number"      );
+        put("result"     ,"Result"     );
+    }};
+    Map<String,String> uiTR = new HashMap<String,String>() {{
+        put("sum"      ,"Topla"   );
+        put("sub"      ,"Çıkar"     );
+        put("mul"     ,"Çarp"      );
+        put("div"     ,"Böl"       );
+        put("firstn"    ,"Birinci Sayı"    );
+        put("secondn"     ,"İkinci Sayı"      );
+        put("result"     ,"Sonuç"     );
+    }};
+    
+    //locale
+    Locale systemLanguage = Locale.getDefault();
+    
     String sumButtonTR = "Topla";
     String subButtonTR = "Çıkar";
     String mulButtonTR = "Çarp";
@@ -56,18 +79,33 @@ public class InterfaceSwing extends JFrame {
 	
 	InterfaceSwing(CalculateService s){  
 		
+		//System.out.println(systemLanguage.getLanguage());
+		//system language
+		Map<String,String> lang = new HashMap<String,String>();
+		switch(systemLanguage.getLanguage()) {
+		case "tr":
+			lang = uiTR;
+			break;
+		case "en":
+			lang = uiEN;
+			break;
+		default:
+			lang = uiTR;
+			break;
+		}
+		
 		service = s;
-		//to do locale
-	    sumButton = new JButton ("Topla");
-        subButton = new JButton ("Çıkar");
-        mulButton = new JButton ("Çarp");
-        firstNumLabel = new JLabel ("Birinci Sayı");
-        secondNumLabel = new JLabel ("İkinci Sayı");
-        resultLabel = new JLabel ("Sonuç");
+		
+	    sumButton = new JButton (lang.get("sum"));
+        subButton = new JButton (lang.get("sub"));
+        mulButton = new JButton (lang.get("mul"));
+        divButton = new JButton (lang.get("div"));
+        firstNumLabel = new JLabel (lang.get("firstn"));
+        secondNumLabel = new JLabel (lang.get("secondn"));
+        resultLabel = new JLabel (lang.get("result"));
         firstNumTextField = new JTextField (5);
         secondNumTextfield = new JTextField (5);
         resultTextfield = new JTextField (5);
-        divButton = new JButton ("Böl");
 
         //adjust size and set layout
         setPreferredSize (new Dimension (431, 219));

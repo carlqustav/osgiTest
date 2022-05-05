@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Locale;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -200,7 +201,7 @@ public class CalculateServiceImpl implements CalculateService {
 	private String num1  = "";
 	private String num2  = "";
 	private String op  = "";
-	private String lang  = ""; 
+	private Locale lang; 
 	private List<String> num1List;
 	private List<String> num2List;
 	
@@ -212,54 +213,67 @@ public class CalculateServiceImpl implements CalculateService {
 		double num2Result = 0;
 		double resultInt = 0;
 		
-		num1 = numString1.trim();
-		num2 = numString2.trim();
+		num1 = numString1.trim().toLowerCase();
+		num2 = numString2.trim().toLowerCase();
 		op = operation.trim();
 		num1List = new ArrayList<String>(Arrays.asList(num1.split(" ")));
 		num2List = new ArrayList<String>(Arrays.asList(num2.split(" ")));
 		
 		lang = detectLanguageBruteForce(num1List, num2List);
-		
-		if(lang.equals("Error")) {
-			result = lang;
+			
+		if(lang == null) {
+			return new String[] {"Error"};
 		}
 		else {
+			System.out.println(lang.getLanguage());
+			
 			num1Result = translate(num1List);
 			num2Result = translate(num2List);
-			
+
 			resultInt = calculate(num1Result,num2Result,operation);
 			result = translateBack(resultInt);
-		}	
-		System.out.println(lang);
-		return new String[]{result,Double.toString(num1Result),Double.toString(num2Result),Double.toString(resultInt)};
+
+			return new String[]{result,Double.toString(num1Result),Double.toString(num2Result),Double.toString(resultInt)};
+		}
+		
+		
 	}
 	
 	//only using first num to detect for now
-	private String detectLanguageBruteForce(List<String> num1List2, List<String> num2List2) {
+	private Locale detectLanguageBruteForce(List<String> num1List2, List<String> num2List2) {
 		List<String> newList = Stream.concat(num1List2.stream(), num2List2.stream())
                 .collect(Collectors.toList());
 		
-		int index = 0;
-		int size = newList.size();
-		boolean unknown = true;
-		String tempStr = "";
+		boolean foundMatch = false;
+		String foundLang = "";
 		
-		while(unknown) {
-			if(index == size) {
-				return "Error";
-			}
-			tempStr = newList.get(index);
+		for(int index = 0; index < newList.size(); index++) {
+			String tempStr = newList.get(index);
 			
 			for(int i = 0; i < dictMap.size(); i++) {
 				if(dictMap.get(i).containsKey(tempStr)) {
-					return dictMapName.get(i);
+					String tempLang = dictMapName.get(i);
+					foundMatch = true;
+					
+					if(foundLang.equals("")) {
+						foundLang = tempLang;
+					}
+					else if(!tempLang.equals(foundLang)) {
+						return null;
+					}		
+				}
+				else if(i == 1) {
+					if(foundMatch) {
+						foundMatch = false;
+					}
+					else {
+						return null;
+					}			
 				}
 			}
-			
-			index++;
 		}
 		
-		return null;
+		return new Locale(foundLang);
 	}
 
 	private double calculate(double num1Result, double num2Result, String operation) {
@@ -279,7 +293,7 @@ public class CalculateServiceImpl implements CalculateService {
 
 	private double div(double num1Result, double num2Result) {
 		if(num2Result != 0)
-			return num1Result / num2Result;
+			return Math.floor(num1Result / num2Result);
 		else
 			return -1;
 	}
@@ -302,13 +316,13 @@ public class CalculateServiceImpl implements CalculateService {
 		double result = 0;
 		int sign = 1;
 		int length = list.size();
-		//to-do check language
+
 		Map<String, Double> dict = new HashMap<String, Double>();
-		switch(lang) {
-		case "TR":
+		switch(lang.getLanguage()) {
+		case "tr":
 			dict = dictTR;
 			break;
-		case "EN":
+		case "en":
 			dict = dictEN;
 			break;
 		}
@@ -377,13 +391,13 @@ public class CalculateServiceImpl implements CalculateService {
 		int powerOfTen = 0;
 		boolean firstTime = true;
 		
-		switch(lang) {
-		case "TR":
+		switch(lang.getLanguage()) {
+		case "tr":
 			dict = dictTRback;
 			powerDict = dictTRpower;
 			minus = minusTR;
 			break;
-		case "EN":
+		case "en":
 			dict = dictENback;
 			powerDict = dictENpower;
 			minus = minusEN;

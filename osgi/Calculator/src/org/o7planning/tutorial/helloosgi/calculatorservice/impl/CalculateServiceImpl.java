@@ -220,7 +220,6 @@ public class CalculateServiceImpl implements CalculateService {
 			return new String[] {"Error : Conflicting languages or invalid word."};
 		}
 		else {
-			System.out.println(lang.getLanguage());
 			
 			num1Result = translate(num1List);
 			num2Result = translate(num2List);
@@ -234,7 +233,7 @@ public class CalculateServiceImpl implements CalculateService {
 			
 			result = translateBack(resultInt);
 
-			return new String[]{result,Double.toString(num1Result),Double.toString(num2Result),Double.toString(resultInt)};
+			return new String[]{lang.getDisplayLanguage(),result,Double.toString(num1Result),Double.toString(num2Result),Double.toString(resultInt)};
 		}
 		
 		

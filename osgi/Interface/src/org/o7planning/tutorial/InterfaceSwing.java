@@ -151,11 +151,12 @@ public class InterfaceSwing extends JFrame {
 	
 	public void buttonPressed(String buttonName) {
 		String results[] = service.recieveInputs(firstNumTextField.getText(), secondNumTextfield.getText(), buttonName);
+		String resultHeaders[] = {"Detected Language : ","Written Result : ", "First Entry : ", "Second Entry : ", "Result in Double : "};
 		
-		resultTextfield.setText(results[0]);
-		
+		resultTextfield.setText(results[1]);
+		System.out.println("\n-------------------------------------------------");
 		for(int i = 0; i < results.length; i++) {
-			System.out.println(results[i]);
+			System.out.println(resultHeaders[i] + results[i]);
 		}
 	}
 }

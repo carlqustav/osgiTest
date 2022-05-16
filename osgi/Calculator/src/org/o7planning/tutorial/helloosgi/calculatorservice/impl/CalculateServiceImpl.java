@@ -383,6 +383,10 @@ public class CalculateServiceImpl implements CalculateService {
 	}
 
 	private String translateBack(double num) {
+		if(num > Math.pow(10, 33)) {
+			return "Error : Result is bigger than 10^33";
+		}
+		
 		Map<Double,String> dict = new HashMap<Double,String>();
 		Map<Integer,String> powerDict = new HashMap<Integer,String>();
 		String result = "";

@@ -1,8 +1,5 @@
 package org.o7planning.tutorial.helloosgi;
 
-import java.security.Provider.Service;
-import java.util.concurrent.TimeUnit;
-
 import org.o7planning.tutorial.InterfaceSwing;
 import org.o7planning.tutorial.helloosgi.calculatorservice.CalculateService;
 import org.osgi.framework.BundleActivator;

@@ -2,8 +2,6 @@ package org.o7planning.tutorial.helloosgi.calculatorservice.impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Dictionary;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 import java.util.HashMap;

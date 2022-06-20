@@ -1,19 +1,9 @@
 package org.o7planning.tutorial.helloosgi.mathconsumer;
 
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Properties;
-
 import org.o7planning.tutorial.helloosgi.calculatorservice.CalculateService;
 import org.o7planning.tutorial.helloosgi.calculatorservice.impl.CalculateServiceImpl;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.Constants;
-import org.osgi.framework.ServiceEvent;
-import org.osgi.framework.ServiceReference;
-import org.osgi.service.event.EventConstants;
 
 public class Activator implements BundleActivator {
 

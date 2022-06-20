@@ -11,10 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import org.o7planning.tutorial.helloosgi.calculatorservice.CalculateService;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.event.Event;
-import org.osgi.service.event.EventAdmin;
 
 public class InterfaceSwing extends JFrame {
 	
@@ -153,7 +149,11 @@ public class InterfaceSwing extends JFrame {
 		String results[] = service.recieveInputs(firstNumTextField.getText(), secondNumTextfield.getText(), buttonName);
 		String resultHeaders[] = {"Detected Language : ","Written Result : ", "First Entry : ", "Second Entry : ", "Result in Double : "};
 		
-		resultTextfield.setText(results[1]);
+		if(results.length > 1)
+			resultTextfield.setText(results[1]);
+		else
+			resultTextfield.setText(results[0]);
+		
 		System.out.println("\n-------------------------------------------------");
 		for(int i = 0; i < results.length; i++) {
 			System.out.println(resultHeaders[i] + results[i]);
